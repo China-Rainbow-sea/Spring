@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+<!--    这就是Spring 的配置文件-->
+<!--    IDEA工具为我们提供了这个文件的模板，一定要使用这个模板来创建-->
+<!--    这个文件名不一定叫Spring.xml ,可以是其他的，但是需要注意的是：尽量在类路径下->
+ -->
+<!--    就在resources 根目录下，就相当与是放到了类的根路径下-->
+<!--    配置的bean ，这样Spring 才可以帮助我们管理这个对象-->
+<!--    bean 标签的两个重要的属性:
+           id : 是这个 bean 的身份证号,不能重复,是唯一的标记
+           class : 必须填写类的全路径,全限定类名,(全限定名,简单的说就是带有包名的类名)-->
+    <bean id="userBean" class="com.rainbowsea.spring6.bean.User"></bean>
+<!--    配置其他的bean-->
+    <bean id="userDaoBean" class="com.rainbowsea.spring6.bean.UserDaoImpForMySQL"></bean>
+
+<!--    同样的可以配置,jdk自带的,或者是其他jdk包下的,java类 bean-->
+    <bean id="nowTine" class="java.util.Date"></bean>
+
+    <bean id="userDao" class="com.rainbowsea.spring6.bean.UserDao"></bean>
+</beans>
