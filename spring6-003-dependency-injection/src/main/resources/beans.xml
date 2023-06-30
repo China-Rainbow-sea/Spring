@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+<!--    配置bean对象的类-->
+    <bean id="xxx" class="com.rainbowsea.spring6.dao.UserDao"></bean>
+    <bean id="yyy" class="com.rainbowsea.spring6.dao.VipDao"></bean>
+
+
+<!--    根据构造方法参数的下标位置进行赋值-->
+    <bean id="csBean" class="com.rainbowsea.spring6.service.CustomerService">
+<!--        构造注入-->
+<!--        指定构造方法的第一个参数，下标是0-->
+        <constructor-arg index="0" ref="xxx"></constructor-arg>
+<!--        指定构造方法的第二个参数，下标是1-->
+        <constructor-arg index="1" ref="yyy"></constructor-arg>
+    </bean>
+
+<!--    再设置一个bean 对象的类-->
+<!--    根据构造方法参数的名字进行注入-->
+    <bean id="csBean2" class="com.rainbowsea.spring6.service.CustomerService">
+        <constructor-arg name="userDao" ref="xxx"></constructor-arg>
+        <constructor-arg name="vipDao" ref="yyy"></constructor-arg>
+
+
+<!--        不指定下标,也不指定参数名,让Spring自己做类型的匹配.-->
+<!--        这种方式实际上是根据类型进行注入的.Spring 会自动根据类型来判断ref 注入给哪个参数-->
+
+
+
+
+    </bean>
+
+    <bean id="">
+    </bean>
+</beans>

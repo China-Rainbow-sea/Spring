@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+<!--    配置 dao -->
+    <bean id="userDaoBean" class="com.rainbowsea.spring6.dao.UserDao"></bean>
+
+    <bean id="vipDao" class="com.rainbowsea.spring6.dao.VipDao"></bean>
+<!--    配置 service -->
+    <bean id="userServiceBean" class="com.rainbowsea.spring6.service.UserService">
+<!--    想让Spring调用对应的set 方法,需要配置property 标签-->
+<!--    name 属性怎么指定值,set 方法的方法名: ,然后把剩下的单词字母变小写,写到这里-->
+<!--        ref 翻译为引用，英语单词： references ,ref 后面指定的是 bean 的id-->
+<!--        id 是唯一的不可以重复的出现的-->
+<!--        <property name="mySQLUserDao" ref="userDaoBean"></property>-->
+        <property name="userDao" ref="userDaoBean"></property>
+        <property name="vipDao" ref="vipDao"></property>
+    </bean>
+</beans>

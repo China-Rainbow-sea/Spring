@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+<!--    声明/定义Bean-->
+    <bean id="orderDaoBean" class="com.rainbowsea.spring6.dao.OrderDao"></bean>
+
+<!--    再声明/定义Bean -->
+    <bean id="orderServiceBean" class="com.rainbowsea.spring6.service.OrderService">
+<!--        使用ref属性来引入， 这就是注入外部Bean-->
+        <property name="orderDao" ref="orderDaoBean"></property>
+    </bean>
+
+
+    <bean id="orderServiceBean2" class="com.rainbowsea.spring6.service.OrderService">
+        <property name="orderDao">
+<!--            通过再 property 标签中使用嵌套的bean标签，这就是内部的bean-->
+            <bean class="com.rainbowsea.spring6.dao.OrderDao"></bean>
+        </property>
+    </bean>
+
+
+<!--    注入简单类型-->
+    <bean id="userBean" class="com.rainbowsea.spring6.bean.User">
+<!--        重点: 如果是给简单类型赋值，就不能使用 ref了，就需要使用value了-->
+        <property name="username" value="张三"></property>
+        <property name="password" value="123"></property>
+        <property name="age" value="20"></property>
+    </bean>
+
+
+<!--    测试哪些类型是简单类型-->
+<!--    对于简单类型的赋值，只能使用 value的属性进行赋值，不能使用 ref 属性赋值-->
+    <bean id="svt" class="com.rainbowsea.spring6.bean.SimpleValueType">
+<!--        下面这种方式是外部的注入-->
+        <property name="age" value="20"></property>
+        <property name="age2" value="20"></property>
+        <property name="username" value="zhangsan"></property>
+        <property name="season" value="SPRING"></property>
+        <property name="flag" value="false"></property>
+        <property name="flag2" value="true"></property>
+        <property name="c" value="男"></property>
+<!--        如果简单类型使用的是 ref 是会报错的, ref 注入的是 bean 类的信息-->
+        <property name="c2" value="女"></property>
+        <property name="clazz" value="java.lang.String"></property>
+
+    </bean>
+
+<!--    特殊的日期时间进行一个特殊的赋值-->
+<!--    报错了，说 1970-10-11 这个字符串无法转换成java.util.Date 类型-->
+<!--    <property name="birth" value="1970.10.11"></property>-->
+<!--    如果你硬要把Date当做简单类型的话，使用 value 赋值的话，这个日期字符串格式有要求的-->
+<!--    所谓的要求就是： new Date toString 打印显示的格式形式-->
+<!--    Fri Jun 30 11:27:41 CST 2023-->
+<!--    在实际开发中，我们一般不会把Date当做简单类型，虽然是简单类型，但是-->
+<!--    我们一般采用的是ref的Date类型的属性赋值。-->
+
+    <bean id="dateType" class="com.rainbowsea.spring6.bean.SimpleValueDateType">
+        <property name="birth" value="Fri Jun 30 11:27:41 CST 2023"></property>
+    </bean>
+
+
+
+<!--    让Spring来管理我们的数据库-->
+    <bean id="myDataSource" class="com.rainbowsea.spring6.jdbc.MyDataSource">
+<!--        下面是外部注入-->
+        <property name="driver" value="com.mysql.cj.jdbc.Driver"></property>
+        <property name="url" value="jdbc:mysql://localhost:3306/spring6/"></property>
+        <property name="username" value="root"></property>
+        <property name="password" value="123456"></property>
+    </bean>
+</beans>
+
