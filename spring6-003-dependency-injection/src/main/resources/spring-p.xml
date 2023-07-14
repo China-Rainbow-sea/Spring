@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+<!--
+ 第一步： P命名空间要添加：如下的命令空间： xmlns:p="http://www.springframework.org/schema/p"
+ 第二步:  使用p:属性名 = "属性值"
+ p:birth-ref 复杂类型
+ -->
+
+    <bean id="dogBean" class="com.rainbowsea.spring6.bean.Dog" p:name="小花" p:age="3" p:date-ref="birthBean">
+    </bean>
+
+<!--    这里获取的是当前系统的时间-->
+<bean id="birthBean" class="java.util.Date"></bean>
+</beans>

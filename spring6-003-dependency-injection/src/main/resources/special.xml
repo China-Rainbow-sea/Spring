@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="mathBean" class="com.rainbowsea.spring6.bean.MathBean">
+<!-- 如果所赋值的值，存在特殊的字符，则需要你进行特殊的处理了
+ <property name="result" value=" 2 < 3"></property>-->
+<!--        第一种方式：使用实体符号代替特殊符号: eg: &lt; 表示 <  -->
+<!--        <property name="result" value=" 2 &lt; 3"></property>-->
+
+<!--        第二种方式: 使用 <![CDATA[]]>  -->
+        <property name="result">
+            <value><![CDATA[ 2 < 3]]></value>
+        </property>
+    </bean>
+
+</beans>

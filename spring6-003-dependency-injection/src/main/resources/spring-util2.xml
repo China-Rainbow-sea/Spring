@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+                          http://www.springframework.org/schema/util  http://www.springframework.org/schema/util/spring-util.xsd">
+
+<!--    运用 util 命名空间：提高复用性
+第一步: 引入 util命名空间
+        在spring的配置文件头部添加 xmlns:util="http://www.springframework.org/schema/util"
+        http://www.springframework.org/schema/util  http://www.springframework.org/schema/util/spring-util.xsd
+           properties: <util:properties></util:properties>
+           List <util:list></util:list>
+           Map <util:map></util:map>
+</beans>
+-->
+
+    <util:properties id="prop">
+<!--        properties 集合赋值-->
+        <prop key="driver">com.mysql.cj.jdbc.Driver</prop>
+        <prop key="url">jdbc:mysql://localhost:3306/spring6</prop>
+        <prop key="username">root</prop>
+        <prop key="password">123</prop>
+    </util:properties>
+
+
+<!--    数据源1： 使用util 命名空间进行一个：复用-->
+    <bean id="dis" class="com.rainbowsea.spring6.jdbc.MyDataSource01">
+        <property name="properties" ref="prop"></property>
+    </bean>
+
+<!--数据源2: -->
+    <bean id="dis2" class="com.rainbowsea.spring6.jdbc.MyDataSource01">
+        <property name="properties" ref="prop"></property>
+    </bean>
+
+
+</beans>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+<!-- 不使用级联属性赋值-->
+    <bean id="studentBean" class="com.rainbowsea.spring6.bean.Student">
+
+        <property name="name" value="张三"></property>
+        <!--
+  ref 不是简单类型，用的式 ref 表示的是: 用的是id .注意是是 set 注入所以需要：对应的 set 方法-->
+        <property name="clazz" ref="clazzBean"></property>
+        <!--        简单类型，用的是 value -->
+        <!--    使用级联属性赋值: 如果使用级联的话：需要在对应的 Student 当中编写 get()对应级联的属性方法
+         同时注意：如果使用级联的话：需要将其中的对应的 clazz.name 类当中的 Clazz 在 clazz.name 的前面
+         不然，无法让 clazz.name 赋值到,从而导致 Student 当中的 clazz 属性为 null
+          链级底层使用的是：getClazz().name 调用的-->
+        <property name="clazz.name" value="高三四班"></property>
+    </bean>
+
+<!--
+   使用级联属性赋值需要注意两点：
+   1.配置的顺序不能颠倒，必须是按照一定的顺序：比如：Clazz 在前，后clazz.name
+   2.clazz属性必须提供对应的 getter方法。
+-->
+
+    <bean id="clazzBean" class="com.rainbowsea.spring6.bean.Clazz">
+<!--        <property name="name" value="高三一班"></property>-->
+    </bean>
+
+</beans>

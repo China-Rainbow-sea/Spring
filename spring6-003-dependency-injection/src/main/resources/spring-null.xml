@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+
+<!--    xml 设置 null 的方法
+1. 第一种：方式不给属性注入，属性的默认值就是为 null 的
+        注意如下的方式，并不是，设置为null的，而是空字符串 null
+        <property name="name" value="null"></property>
+        第二种方式:
+              第二种方式是手动注入 null 方式
+    <property name="name">
+        <null></null>
+    </property>
+-->
+
+<!--    注入空字符串的第一种方式:
+ <property name="name" value=""></property>
+ <注入空字符串第二种方式:
+ <value>
+-->
+
+    <bean id="catBean" class="com.rainbowsea.spring6.bean.Cat">
+<!--        第二种方式是手动注入 null 方式 -->
+<!--        <property name="name">-->
+<!--            <null></null>-->
+<!--        </property>-->
+        <!--    注入空字符串第二种方式: -->
+
+        <property name="name">
+            <value></value>
+        </property>
+        <property name="age" value="3"></property>
+    </bean>
+
+
+
+
+</beans>

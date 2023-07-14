@@ -17,6 +17,15 @@ import java.util.Date;
 public class FirstSpringTest {
 
     @Test
+    public void test02() {
+        ApplicationContext applicationContext = new ClassPathXmlApplicationContext("beans.xml");
+
+        // 第二步：
+        User userBean = applicationContext.getBean("userBean", User.class);
+        System.out.println(userBean);
+    }
+
+    @Test
     public void testFirstSpringCode() {
         // 第一步:获取到Spring 容器对象
         // ApplicationContext 翻译为: 应用上下文,其实就是

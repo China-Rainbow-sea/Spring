@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="dis" class="com.rainbowsea.spring6.jdbc.MyDataSource01">
+<!--        property 集合set注入 标签: <props>-->
+        <property name="properties">
+            <props>
+                <prop key="driver">com.mysql.cj.jdbc.Driver</prop>
+                <prop key="url">jdbc:mysql//localhost:3306/spring6</prop>
+                <prop key="username">root</prop>
+                <prop key="password">123</prop>
+            </props>
+        </property>
+    </bean>
+
+<!-- 数据源信息2-->
+    <bean id="dis2" class="com.rainbowsea.spring6.jdbc.MyDataSource01">
+        <!--        property 集合set注入 标签: <props>-->
+        <property name="properties">
+            <props>
+                <prop key="driver">com.mysql.cj.jdbc.Driver</prop>
+                <prop key="url">jdbc:mysql//localhost:3306/spring6</prop>
+                <prop key="username">root</prop>
+                <prop key="password">123</prop>
+            </props>
+        </property>
+    </bean>
+</beans>

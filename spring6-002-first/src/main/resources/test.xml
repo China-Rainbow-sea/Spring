@@ -3,8 +3,4 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <bean id="userBean" class="com.rainbowsea.spring6.bean.User"></bean>
-
-<!--    id 属性: 代表对象的唯一标识，可以看做一个人的身份证号:-->
-<!--    class 属性: 用来指定要创建的 java 对象的类名，这个类名必须是全限定类名(带包名)-->
 </beans>

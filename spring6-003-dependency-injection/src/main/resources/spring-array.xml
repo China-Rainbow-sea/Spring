@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+
+
+
+
+<!--    集合的set 注入-->
+
+    <bean id="person" class="com.rainbowsea.spring6.bean.Person">
+
+<!--        注入Properties 属性类对象-->
+        <property name="properties">
+<!--            注入properties 属性使用 props 标签-->
+            <props>
+                <prop key="driver">com.mysql.cj.jdbc.Driver</prop>
+                <prop key="url">jdbc:mysql://localhost:3306/spring6</prop>
+                <prop key="username">root</prop>
+                <prop key="password">123</prop>
+
+            </props>
+        </property>
+
+<!--        set 注入，外部注入
+List 集合有序可重复的 -->
+        <property name="names">
+<!--            List集合的注入使用的是 List 标签-->
+            <list>
+                <value>张三</value>
+                <value>李四</value>
+                <value>王五</value>
+                <value>张三</value>
+                <value>张三</value>
+            </list>
+        </property>
+<!--        set集合无序不可重复的-->
+        <property name="addrs">
+<!--            set集合的 set 注入使用的是: Set 标签-->
+            <set>
+<!--                如果是简单类型的话: 使用value标签
+复杂的使用的是: ref 的方式: -->
+
+                <value>北京大兴区</value>
+                <value>北京大兴区</value>
+                <value>北京海定区</value>
+
+            </set>
+        </property>
+
+<!--        map集合的注入-->
+        <property name="phones">
+<!--            map  集合标签的注入: 使用 map 标签 -->
+<!--            如果Key 和 value 不是简单类型就用 这个配置-->
+<!--            <entry key-ref="1" value-ref="110"></entry>-->
+<!--            如果是简单类型的就是: key 和 value 的标签的方式了-->
+            <map>
+<!--                key-ref 复杂类型  value-ref 是复杂类型-->
+                <entry key="1" value="110"></entry>
+                <entry key="2" value="120"></entry>
+                <entry key="3" value="190"></entry>
+            </map>
+        </property>
+
+    </bean>
+
+
+
+
+<!--    数组 set 注入-->
+<!--    数组简单类型的注入的-->
+    <bean id="yuQian" class="com.rainbowsea.spring6.bean.QianDaye">
+<!--        这个数组属性当中的元素类型是String 简单类型的-->
+        <property name="aiHaoos">
+<!--             数组的赋值使用 array 标签-->
+            <array>
+                <value>学习</value>
+                <value>敲代码</value>
+                <value>写博客</value>
+            </array>
+        </property>
+
+<!--        复杂类型的赋值: -->
+        <property name="womens">
+<!--           复杂类型数组的赋值: 数组的赋值使用 array 标签
+     复杂类型使用的是: ref 进行赋值的-->
+            <array>
+                <ref bean="w1"></ref>
+                <ref bean="w2"></ref>
+                <ref bean="w3"></ref>
+            </array>
+        </property>
+    </bean>
+
+
+<!--    类类型的数组类型的 set 注入-->
+    <bean id="w1" class="com.rainbowsea.spring6.bean.Woman">
+<!--        value 简单类型的赋值-->
+        <property name="name" value="张三"></property>
+    </bean>
+    <bean id="w2" class="com.rainbowsea.spring6.bean.Woman">
+        <property name="name" value="李四">
+        </property>
+    </bean>
+
+    <bean id="w3" class="com.rainbowsea.spring6.bean.Woman">
+        <property name="name" value="李华"></property>
+    </bean>
+
+
+
+</beans>
