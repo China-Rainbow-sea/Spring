@@ -10,7 +10,6 @@
         c:_0 下标方式
         c:name 参数名方式
 
-
 -->
     <bean id="peopleBean" class="com.rainbowsea.spring6.bean.People" c:name="张三" c:_1="30" c:sex="true"></bean>
 </beans>

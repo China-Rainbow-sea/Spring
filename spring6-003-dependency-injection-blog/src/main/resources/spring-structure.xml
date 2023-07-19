@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="catBean" class="com.rainbowsea.bean.Cat"></bean>
+<!--    <bean id="zoonBean" class="com.rainbowsea.bean.Zoon">-->
+<!--&lt;!&ndash;      简单的类型使用: value 标签赋值&ndash;&gt;-->
+<!--        <constructor-arg value="小明"></constructor-arg>-->
+<!--&lt;!&ndash;        复杂类型使用: ref 标签赋值&ndash;&gt;-->
+<!--        <constructor-arg ref="catBean"></constructor-arg>-->
+<!--    </bean>-->
+</beans>

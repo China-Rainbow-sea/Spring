@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+                           http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+<!--    xml 读取对应文件当中的 jdbc.properties 文件信息-->
+    <context:property-placeholder location="jdbc.properties"></context:property-placeholder>
+    <!--    配置数据源-->
+    <bean id="ds" class="com.rainbowsea.bean.MyDataSource">
+        <!--        property Map集合赋值 怎么获取到jdbc.properties文件当中的值呢：${}-->
+        <property name="driver" value="${driverClass}"></property>
+        <property name="url" value="${url}"></property>
+        <property name="username" value="${username}"></property>
+        <property name="password" value="${password}"></property>
+    </bean>
+</beans>

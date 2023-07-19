@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="catBean" class="com.rainbowsea.bean.Cat"></bean>
+
+    <bean id="zoonBean" class="com.rainbowsea.bean.Zoon">
+<!--        set 注入使用: <property></property> 标签:
+        同样的: value 为简单类型的赋值-->
+        <property name="zoonName" value=""></property>
+        <property name="cat" ref="catBean"></property>
+    </bean>
+</beans>
