@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.rainbowsea</groupId>
+    <artifactId>spring6-006-bean-lifecycle</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <packaging>jar</packaging>
+
+    <properties>
+        <maven.compiler.source>17</maven.compiler.source>
+        <maven.compiler.target>17</maven.compiler.target>
+    </properties>
+
+
+    <!--spring context 依赖-->
+    <!--当前引入的 Spring context 依赖之后，表示将Spring 的基础引入-->
+    <!-- 如果，你想要用法Spring 的jdbc 话，需要导入tx.那么还需要导入再次添加依赖 -->
+    <!-- 配置多个仓库-->
+
+    <!--spring contest 仓库-->
+    <!-- https://mvnrepository.com/artifact/org.springframework/spring-context -->
+    <!--        <dependency>-->
+    <!--            <groupId>org.springframework</groupId>-->
+    <!--            <artifactId>spring-context</artifactId>-->
+    <!--            <version>6.0.3</version>-->
+    <!--        </dependency>-->
+    <!-- https://mvnrepository.com/artifact/org.springframework/spring-context -->
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context</artifactId>
+            <version>6.0.11</version>
+        </dependency>
+
+
+        <!-- junit4 -->
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.13.2</version>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+
+</project>

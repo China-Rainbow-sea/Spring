@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+<!--    通过工厂Bean: DateFactoryBean 来返回普通 Bean.java.util.Date
+返回 DateFactorBean 当中的
+@Override
+    public Date getObject() throws Exception {
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
+        Date date = simpleDateFormat.parse(this.strDate);
+        return date;
+    }
+-->
+    <bean id="date" class="com.rainbowsea.spring6.bean.Date.DateFactorBean">
+        <constructor-arg name="strDate" value="1980-10-11"></constructor-arg>
+    </bean>
+
+    <bean id="student2" class="com.rainbowsea.spring6.bean.Date.Student">
+        <property name="birth" ref="date"></property>
+    </bean>
+
+
+    <bean id="nowTime" class="java.util.Date"></bean>
+    <bean id="student" class="com.rainbowsea.spring6.bean.Date.Student">
+        <!--        把日期类型当作简单类型来，格式固定，-->
+        <!--        <property name="birth" value="Sat Apr 27 21:41:50 CST 2024"></property>-->
+
+
+    </bean>
+</beans>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+<!--   第一种： 通过构造方法获取 Bean -->
+    <bean id="sb" class="com.rainbowsea.spring6.bean.SpringBean"></bean>
+
+<!--   第二种： 通过简单工厂模式，你需要在Spring当中配置文件种告诉 Spring框架，调用哪个类当中的哪个方法可以获取到这个
+你要的 Bean; factory-method 指明方法（）对应方法的小写 -->
+<!--    factory-method= 属性指定的时工厂类当中静态方法，也就是告诉Spring 框架，调用方法可以获取到你要的
+Bean-->
+    <bean id="starBean" class="com.rainbowsea.spring6.bean.StarFactory" factory-method="get"></bean>
+
+
+<!--    第三种：通过Spring提供的实例化方式，通过工厂方法模式，通过
+ factory-bean 指明哪个对象+factory-method当中的哪个方法；可以获取到你想要的 bean-->
+<!--    简单的说：就是告诉Spring框架，调用哪个对象中的哪个方法，就可以获取到你想要的 Bean了-->
+    <bean id="gunFactory" class="com.rainbowsea.spring6.bean.GunFactory"></bean>
+<!--    以下的配置很关键： factory-bean:告诉Spring框架调用哪个对象； factory-method 告诉Spring框架
+调用哪个方法，可以获取到你要的Bean-->
+    <bean id="gun" factory-bean="gunFactory" factory-method="get"></bean>
+
+
+<!--   Spring框架中：获取Bean的第四种方式：通过 FactoryBean 接口来实现指明 -->
+<!--    这种方式实际上就是第三种方式的简化-->
+<!--    由于你编写的类实现了FactoryBean接口，那么这个类就是一个特殊的类，不需要你再手动指定： factory-bean；
+factory-method 哪个对象，哪个方法了，你实现了 FactoryBean 接口，Spring框架就已经知道了，不需要再特殊指明了-->
+<!--    剩下指明是哪个特殊的类就可以了-->
+<!--    通过一个特殊的Bean，工厂Bean，来返回一个普通的Bean person对象-->
+    <bean id="person" class="com.rainbowsea.spring6.bean.PersonFactoryBean"></bean>
+</beans>
