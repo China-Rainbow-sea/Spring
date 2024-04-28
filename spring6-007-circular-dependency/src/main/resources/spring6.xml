@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!--    singleton + setter模式下的循环依赖-->
+    <!--    singleton表示在整个Spring容器当中十单例的，独一无二的对象
+
+    -->
+    <!--    <bean id="husbandBean" class="com.rainbowsea.spring6.bean.Husband" scope="singleton">-->
+    <!--        <property name="name" value="张三"></property>-->
+    <!--        <property name="wife" ref="wifeBean"></property>-->
+    <!--    </bean>-->
+
+
+    <!--    <bean id="wifeBean" class="com.rainbowsea.spring6.bean.Wife" scope="singleton">-->
+    <!--        <property name="name" value="小花"></property>-->
+    <!--        <property name="husband" ref="husbandBean"></property>-->
+    <!--    </bean>-->
+
+
+    <!--在 prototype + setter模式下的循环依赖
+    BeanCreationException 报错：当前的Bean正在处于创建中异常
+    注意：当两个bean的scope都是prototype的时候，才会出现异常，如果其中任意一个是singleton的，就不会出现异常了。
+    是其中的任意一个就行。
+    因为：singleton 优先被“曝光”，实例化和赋值是分开的。-->
+    <!--    <bean id="husbandBean" class="com.rainbowsea.spring6.bean.Husband" scope="prototype">-->
+    <!--        <property name="name" value="张三"></property>-->
+    <!--        <property name="wife" ref="wifeBean"></property>-->
+    <!--    </bean>-->
+
+
+    <!--    <bean id="wifeBean" class="com.rainbowsea.spring6.bean.Wife" scope="singleton">-->
+    <!--        <property name="name" value="小花"></property>-->
+    <!--        <property name="husband" ref="husbandBean"></property>-->
+    <!--    </bean>-->
+
+<!--基于构造注入（进行赋值），很明显，要调用构造方法进行赋值，所以会产生循环依赖并且无法解决的，
+所以编写代码时一定要注意。-->
+    <bean id="husbandBean" class="com.rainbowsea.spring6.bean.Husband" scope="prototype">
+        <constructor-arg name="name" value="张三"></constructor-arg>
+        <constructor-arg name="wife" ref="wifeBean"></constructor-arg>
+    </bean>
+
+
+    <bean id="wifeBean" class="com.rainbowsea.spring6.bean.Wife" scope="singleton">
+        <constructor-arg name="name" value="小花"></constructor-arg>
+        <constructor-arg name="husband" ref="husbandBean"></constructor-arg>
+    </bean>
+
+</beans>
