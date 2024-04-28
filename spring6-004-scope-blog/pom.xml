@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.rainbowsea</groupId>
-    <artifactId>spring6-007-circular-dependency</artifactId>
+    <artifactId>spring6-004-scope-blog</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>jar</packaging>
 
@@ -13,6 +13,7 @@
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
     </properties>
+
 
     <dependencies>
         <dependency>
@@ -37,5 +38,4 @@
         </dependency>
 
     </dependencies>
-
 </project>

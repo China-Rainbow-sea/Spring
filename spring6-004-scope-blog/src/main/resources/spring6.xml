@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+<!-- 自定义一个 scope属性值：作用：在同一个线程中，获取的Bean都是同一个。跨线程则是不同的对象。-->
+    <bean class="org.springframework.beans.factory.config.CustomScopeConfigurer">
+        <property name="scopes"> <!-- set 注入，为该类当中的 name 属性赋值-->
+            <map> <!-- map集合 注入，为该类当中的 key 属性赋值，也就是我们自定义的 scope的属性值的名字-->
+                <entry key="myThread">
+                    <bean class="org.springframework.context.support.SimpleThreadScope"/>
+                </entry>
+            </map>
+        </property>
+    </bean>
+
+
+
+    <bean name="user" class="com.rainbowsea.spirngBean.User" scope="myThread"></bean>
+</beans>
