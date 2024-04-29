@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+<!--    指明通过DateFactor 获取到一个我们所需要的格式的 Date 类型-->
+    <bean id="myDateBean" class="com.rainbowsea.Bean.myDate.DateFactor">
+        <property name="strDate" value="1980-01-01"></property>
+    </bean>
+<!--    获取到之后，作为复杂类型，赋值给 Vip 当中的 Date birth 属性值-->
+    <bean id="vipBean" class="com.rainbowsea.Bean.myDate.Vip">
+       <property name="birth" ref="myDateBean"></property>
+    </bean>
+</beans>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+    <!--   Spring框架中：获取Bean的第四种方式：通过 FactoryBean 接口来实现指明 -->
+    <!--    这种方式实际上就是第三种方式的简化-->
+    <!--    由于你编写的类实现了FactoryBean接口，那么这个类就是一个特殊的类，不需要你再手动指定： factory-bean；
+    factory-method 哪个对象，哪个方法了，你实现了 FactoryBean 接口，Spring框架就已经知道了，不需要再特殊指明了-->
+    <!--    剩下指明是哪个特殊的类就可以了-->
+    <!--    通过一个特殊的Bean，工厂Bean，来返回一个普通的Bean person对象-->
+    <bean id="userFactory" class="com.rainbowsea.Bean.UserFactory"></bean>
+</beans>
