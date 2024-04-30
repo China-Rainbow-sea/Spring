@@ -12,7 +12,7 @@
 >BeanCreationException 报错：当前的Bean正在处于创建中异常
 > 注意：当两个bean的scope都是prototype的时候，才会出现异常，如果其中任意一个是singleton的，就不会出现异常了。-->
 > 就不会出现异常了。
->是其中的任意一个就行。
+>。
 > 因为：singleton 优先被“曝光”，实例化和赋值是分开的。
 
 

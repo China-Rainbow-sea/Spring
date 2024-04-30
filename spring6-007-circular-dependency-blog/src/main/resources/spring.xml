@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!--     Husband 的配置-->
+    <bean id="husbandBean" class="com.rainbowsea.bean.Husband" scope="singleton">
+        <property name="name" value="小明" ></property>
+        <property name="wife" ref="wifeBean"></property> <!--构造方法 注入-->
+    </bean>
+    <!--    Wife 的配置-->
+    <bean id="wifeBean" class="com.rainbowsea.bean.Wife" scope="singleton">
+        <property name="name" value="小花"></property>
+        <property name="husband" ref="husbandBean"></property>
+    </bean>
+</beans>
