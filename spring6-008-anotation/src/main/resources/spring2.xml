@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+                           http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+<!-- 第一种解决方案:
+            use-default-filters="false"
+            如果整个属性是false，表示com.rainbowsea.sprint.bean2包下所有的带有声明Bean的注解全部失效。
+-->
+
+
+<!--    <context:component-scan base-package="com.rainbowsea.sprint.bean2" use-default-filters="false">-->
+        <!--        只有@Repository获取其他的注解被包含进来了，才生效
+        注意是：include-filter -->
+<!--        <context:include-filter type="annotation" expression="org.springframework.stereotype.Repository"/>-->
+<!--    </context:component-scan>-->
+
+
+<!--    第二种解决方式：
+     use-default-filters="true" 如果这个属性值是true,表示 com.rainbowsea.sprint.bean2
+      下的所有带有声明Bean （@Component,@Controller,@Service,@Repository）的注解全部生效
+      use-default-filters="true"  默认值就是 true,不用写
+-->
+    <context:component-scan base-package="com.rainbowsea.sprint.bean2" use-default-filters="true">
+<!--        如果为 true ，下面声明了对应的注解表示该，注解下的 Bean 失效，例如这里的：该
+           "com.rainbowsea.sprint.bean2 包下的注解为：@Service 的Bean失效
+            注意是：exclude-filter -->
+        <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Service"/>
+    </context:component-scan>
+</beans>

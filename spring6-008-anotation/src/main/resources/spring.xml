@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+                           http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+<!--    <context:component-scan base-package="com.rainbowsea.sprint.bean"></context:component-scan>-->
+
+<!--    如果要扫描的是多个包，使用逗号隔开-->
+<!--    <context:component-scan-->
+<!--            base-package="com.rainbowsea.sprint.bean,com.rainbowsea.sprint.dao"></context:component-scan>-->
+
+<!--    或者是上一级一些,不过，可能会牺牲一点效率，查找的时间上多一些-->
+    <context:component-scan base-package="com.rainbowsea.sprint.bean"></context:component-scan>
+</beans>

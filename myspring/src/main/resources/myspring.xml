@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans>
+    <bean id="user" class="com.rainbowsea.myspring.bean.User">
+<!--        set注入-->
+        <property name="name" value="张三"></property>
+        <property name="age" value="20"></property>
+    </bean>
+
+    <bean id="userDaoBean" class="com.rainbowsea.myspring.bean.UserDao"></bean>
+
+    <bean id="userService" class="com.rainbowsea.myspring.bean.UserService">
+        <property name="userDao" ref="userDaoBean"></property>
+    </bean>
+</beans>

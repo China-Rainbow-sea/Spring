@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans>
+    <bean id="vip" class="com.rainbowsea.myspring.bean.Vip">
+        <property name="name" value="jeckson"></property>
+        <property name="age" value="20"></property>
+        <property name="height" value="1.85"></property>
+    </bean>
+
+    <bean id="orderDaoBean" class="com.rainbowsea.myspring.bean.OrderDao"></bean>
+
+    <bean id="orderServer" class="com.rainbowsea.myspring.bean.OrderService">
+        <property name="orderDao" ref="orderDaoBean"></property>
+    </bean>
+
+
+</beans>
