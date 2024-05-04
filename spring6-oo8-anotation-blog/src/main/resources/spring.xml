@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+                           http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+<!--    use-default-filters="true" 如果这个属性值是true,表示 com.rainbowsea.sprint.bean2-->
+<!--    下的所有带有声明Bean （@Component,@Controller,@Service,@Repository）的注解全部生效-->
+<!--    use-default-filters="true"  默认值就是 true,不用写-->
+    <context:component-scan base-package="com.rainbowsea.reflect.sprint.bean" use-default-filters="true" >
+        <!--        如果为 true ，下面声明了对应的注解表示该，注解下的 Bean 失效，例如这里的：该
+           "com.rainbowsea.reflect.sprint.bean 包下的注解为：@Service,@Controller 的Bean失效-->
+        <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Service"/>
+        <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
+    </context:component-scan>
+</beans>

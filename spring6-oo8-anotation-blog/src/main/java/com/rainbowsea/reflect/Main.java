@@ -1,6 +1,4 @@
-package com.rainbowsea;
-
-
+package com.rainbowsea.reflect;
 
 public class Main {
     public static void main(String[] args) {

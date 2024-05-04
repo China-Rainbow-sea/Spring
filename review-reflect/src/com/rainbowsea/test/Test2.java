@@ -25,17 +25,21 @@ public class Test2 {
             // 获取到对应的类
             Class<?> clazz = Class.forName(className);
             // 获取对应的方法
-            // 方法名
+            // 方法名: 这里我们知道set 方法格式为: setAge() set+属性名的首字母大小+后面属性名的小写字母
             String setMethodName = "set" + propertyName.toUpperCase().charAt(0)+ propertyName.substring(1);
             // 获取对应的方法名:
-            // 根据属性名获取属性类型
+            // 我们知道的属性名就可以，根据属性名获取属性类型
+            // 下面这里获取到的是一个完整的：private int com.rainbowsea.reflect.User.age 类型名
             Field field = clazz.getDeclaredField(propertyName);
-            // field.getType() 获取到属性的类型。
+
+            // field.getType() 获取到属性的类型，是个简单的类型 int
             Method declaredMethod = clazz.getDeclaredMethod(setMethodName, field.getType());
+            //System.out.println(field.getType());
+
             // 准备对象
             Constructor<?> declaredConstructor = clazz.getDeclaredConstructor();
             Object obj = declaredConstructor.newInstance();
-            // 调用set()方法赋值， 没有返回值
+            // 调用set()方法赋值， 没有返回值(调用 obj 的对象中的，declaredMethod()方法，参数是 30,没有返回值)
             declaredMethod.invoke(obj,30);
 
             System.out.println(obj);

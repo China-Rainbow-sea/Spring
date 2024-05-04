@@ -1,7 +1,6 @@
 package org.myspringframework.core;
 
 import org.dom4j.Document;
-import org.dom4j.DocumentException;
 import org.dom4j.Element;
 import org.dom4j.Node;
 import org.dom4j.io.SAXReader;
@@ -72,6 +71,7 @@ public class ClassPathXmlApplicationContext implements ApplicationContext {
                     singletonObjects.put(id, bean);
                     // 记录日志
                     //logger.info(singletonObjects.toString());
+                    //System.out.println(singletonObjects.toString());
                 } catch (Exception e) {
                     e.printStackTrace();
                     throw new RuntimeException(e);
