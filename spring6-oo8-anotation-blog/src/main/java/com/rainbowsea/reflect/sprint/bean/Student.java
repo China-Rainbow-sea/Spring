@@ -9,9 +9,9 @@ import org.springframework.stereotype.Repository;
 // 类名首字母变小写就是 bean 的名字。
 @Repository(value = "studentBean")
 public class Student {
-    public Student() {
+ /*   public Student() {
         System.out.println("Student的无参数构造方法执行");
-    }
+    }*/
 }
 
 /**
