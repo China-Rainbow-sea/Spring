@@ -24,6 +24,7 @@ public class OrderServiceImp implements OrderService{  // 目标对象
         }
 
         System.out.println("订单已生成");
+
     }
 
     @Override
@@ -39,6 +40,8 @@ public class OrderServiceImp implements OrderService{  // 目标对象
 
     @Override
     public void detail() {
+
+
         // 模拟生成订单的耗时
         try {
             Thread.sleep(1000);
@@ -46,5 +49,6 @@ public class OrderServiceImp implements OrderService{  // 目标对象
             throw new RuntimeException(e);
         }
         System.out.println("请看订单详情");
+
     }
 }

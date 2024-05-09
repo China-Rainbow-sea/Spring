@@ -2,6 +2,7 @@ package com.rainbowsea.proxy.client;
 
 import com.rainbowsea.proxy.service.OrderService;
 import com.rainbowsea.proxy.service.OrderServiceImp;
+import com.rainbowsea.proxy.service.OrderServiceImpSub;
 import com.rainbowsea.proxy.service.OrderServiceProxy;
 
 public class Test {
@@ -37,8 +38,8 @@ public class Test {
      *      缺点一：虽然解决了OCP开闭原则，但是这种方式会导致耦合度很高，因为采用了继承关系
      *      缺点二：代码没有得到复用（相同的代码写了很多遍）
      */
-    public static void main3(String[] age) {
-        OrderService orderService = new OrderServiceImp();
+    public static void main2(String[] age) {
+        OrderService orderService = new OrderServiceImpSub();
         orderService.generate();
 
         orderService.detail();
@@ -54,7 +55,7 @@ public class Test {
  *      缺点一：违背了OCP开闭原则（修改关闭，这里修改（改了源代码），扩展打开）
  *      缺点二：代码没有得到复用（相同的代码写了很多遍）
      */
-    public static void main2(String[] age) {
+    public static void main1(String[] age) {
         OrderService orderService = new OrderServiceImp();
         orderService.generate();
 

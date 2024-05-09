@@ -37,6 +37,15 @@ public class TimerInvocationHandler implements InvocationHandler {
 
     @Override
     public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
+        System.out.println("invoke 执行...");
+        return null;
+    }
+
+
+
+
+   /* @Override
+    public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
 
         long begin = System.currentTimeMillis();
         // 这个接口的目的就是为了让你有地方写增强代码
@@ -51,5 +60,5 @@ public class TimerInvocationHandler implements InvocationHandler {
         // 注意：这个invoke方法的返回值，如果代理对象调用代理方法之后，需要返回结果的话，
         // invoke 方法必须将目标对象的目标方法执行结果继续返回
         return reValue;
-    }
+    }*/
 }

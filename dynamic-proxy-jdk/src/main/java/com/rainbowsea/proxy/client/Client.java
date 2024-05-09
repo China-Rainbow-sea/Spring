@@ -42,11 +42,10 @@ public class Client {
 
          */
         // 注意：代理对象和目标对象都实现了共同的接口，接口是一样的看，所以可以向下转型
-        //OrderService proxy = (OrderService)Proxy.newProxyInstance(target.getClass().getClassLoader(),
-        //        target.getClass().getInterfaces(),
-        //        new TimerInvocationHandler(target));
+        OrderService proxy = (OrderService)Proxy.newProxyInstance(target.getClass().getClassLoader(),
+                target.getClass().getInterfaces(), new TimerInvocationHandler(target));
 
-        OrderService proxy = (OrderService) ProxyUtil.newProxyInstance(target);
+        //OrderService proxy = (OrderService) ProxyUtil.newProxyInstance(target);
         // 虽然这里的    new TimerInvocationHandler() 可以用Lamda表达式写，但是这么做的复用性，并没有
         //单独写好为一个类，复用性高
 
