@@ -26,25 +26,14 @@ public class TimerInvocationHandler implements InvocationHandler {
      4. 我们可以看到这里并没有调用到目标方法的对象中的方法呀
      这个需要我们在增强代码中通过传的参数，自己调用目标对象/代理当中的目标方法。
      */
-
     // 目标对象
     private Object target;
-
     public TimerInvocationHandler(Object target) {
         // 赋值给成员变量
         this.target = target;
     }
 
     @Override
-    public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
-        System.out.println("invoke 执行...");
-        return null;
-    }
-
-
-
-
-   /* @Override
     public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
 
         long begin = System.currentTimeMillis();
@@ -60,5 +49,5 @@ public class TimerInvocationHandler implements InvocationHandler {
         // 注意：这个invoke方法的返回值，如果代理对象调用代理方法之后，需要返回结果的话，
         // invoke 方法必须将目标对象的目标方法执行结果继续返回
         return reValue;
-    }*/
+    }
 }

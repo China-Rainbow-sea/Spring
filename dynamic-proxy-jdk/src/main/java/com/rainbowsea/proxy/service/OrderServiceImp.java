@@ -13,8 +13,6 @@ package com.rainbowsea.proxy.service;
  */
 public class OrderServiceImp implements OrderService{  // 目标对象
 
-
-
     @Override
     public void generate() {
 
@@ -29,7 +27,7 @@ public class OrderServiceImp implements OrderService{  // 目标对象
     }
 
     @Override
-    public void modify() {
+    public void modify() {  // 目标对象的，目标方法
         // 模拟生成订单的耗时
         try {
             Thread.sleep(1000);

@@ -28,11 +28,7 @@ public class Client {
          */
         UserService userServiceProxy = (UserService) enhancer.create();
 
-        // 建议大家能够把CGLIB动态代理生成的代理对象的名字格式有点印象
-        // 根据这个名字可以推测框架底层是否使用了CGLIB动态代理
-        System.out.println(userServiceProxy);
-        // 底层本质,继承，内存当中生成的继承代理类，同时实例化该代理对象
-        // com.rainbowsea.proxy.service.UserService$$EnhancerByCGLIB$$59206fe7@5d3411d extends UserService{}
+
 
         // 调用代理对象的代理方法
         boolean success = userServiceProxy.login("admin", "123");
