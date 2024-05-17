@@ -2,13 +2,33 @@ package com.rainbowsea.spring6.test;
 
 import com.rainbowsea.spring6.service.AccountService;
 import com.rainbowsea.spring6.service.OrderService;
+import com.rainbowsea.spring6.service.Spring6Config;
 import com.rainbowsea.spring6.service.UserService;
 import com.rainbowsea.spring6.service.VipService;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class AOPRealAppTest {
+
+
+    @Test
+    public void testAOPWithAllAnnotation() {
+        ApplicationContext applicationContext = new AnnotationConfigApplicationContext(Spring6Config.class);
+        AccountService accountService = applicationContext.getBean("accountService", AccountService.class);
+        accountService.transfer();
+    }
+
+
+    @Test
+    public void testAOP() {
+        ApplicationContext applicationContext = new ClassPathXmlApplicationContext("spring6.xml");
+        AccountService accountService = applicationContext.getBean("accountService", AccountService.class);
+        accountService.transfer();
+
+
+    }
 
     @Test
     public void testSecurityLong() {

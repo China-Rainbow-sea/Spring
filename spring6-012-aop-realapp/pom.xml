@@ -15,6 +15,7 @@
     </properties>
 
 
+<!--    Spring 的仓库-->
     <repositories>
         <repository>
             <id>repository.spring.milestone</id>

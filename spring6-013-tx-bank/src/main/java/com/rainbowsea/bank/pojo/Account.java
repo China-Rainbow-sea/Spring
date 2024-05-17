@@ -2,8 +2,8 @@ package com.rainbowsea.bank.pojo;
 
 public class Account {
 
-    private String actno;
-    private Double balance;
+    private String actno;  // 账户
+    private Double balance;  // 金额
 
 
     public Account() {

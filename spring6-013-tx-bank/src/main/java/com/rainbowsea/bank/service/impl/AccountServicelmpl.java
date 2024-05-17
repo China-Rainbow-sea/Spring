@@ -23,7 +23,7 @@ public class AccountServicelmpl implements AccountService {
 
     // 控制事务: 因为在这个方法中要完成所有的转账业务
     @Override
-    @Transactional(isolation = Isolation.READ_COMMITTED)  // 开启事务
+    //@Transactional(isolation = Isolation.READ_COMMITTED)  // 开启事务
     public void transfer(String fromActno, String toActno, double money) {
 
         // 第一步：开启事务

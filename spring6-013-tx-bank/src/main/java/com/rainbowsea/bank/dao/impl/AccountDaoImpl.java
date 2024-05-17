@@ -12,8 +12,6 @@ import org.springframework.stereotype.Repository;
 public class AccountDaoImpl implements AccountDao {
 
 
-
-
     @Resource(name = "jdbcTemplate")  // jdbcTemplate 内置的对象，resource 根据名称进行 set 注入赋值
     private JdbcTemplate jdbcTemplate;
 
