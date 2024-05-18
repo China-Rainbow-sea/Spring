@@ -23,7 +23,7 @@ public class AccountServicelmpl implements AccountService {
 
     // 控制事务: 因为在这个方法中要完成所有的转账业务
     @Override
-    //@Transactional(isolation = Isolation.READ_COMMITTED)  // 开启事务
+    @Transactional(isolation = Isolation.READ_COMMITTED)  // 开启事务
     public void transfer(String fromActno, String toActno, double money) {
 
         // 第一步：开启事务
@@ -50,8 +50,8 @@ public class AccountServicelmpl implements AccountService {
         int count = accountDao.update(fromAct);
 
         // 模拟异常
-        String s = null;
-        s.toString();
+        //String s = null;
+        //s.toString();
 
         count += accountDao.update(toAct);
 
@@ -79,6 +79,7 @@ public class AccountServicelmpl implements AccountService {
 
         // 创建账号对象
         Account act2 = new Account("act-004", 1000.0);
+
         // 这里调用 accountServiceImpl2 中的 save() 方法进行插入
         try {
             accountService2.save(act2);

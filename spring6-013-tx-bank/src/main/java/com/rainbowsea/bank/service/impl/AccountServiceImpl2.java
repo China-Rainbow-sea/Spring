@@ -20,14 +20,15 @@ public class AccountServiceImpl2 implements AccountService {
 
     }
 
+
     @Override
-    @Transactional(propagation = Propagation.REQUIRES_NEW)  // 事务注解
+    @Transactional(propagation = Propagation.REQUIRES_NEW)  // 事务注解：事务的传播行为
     public void save(Account account) {
         accountDao.insert(account);
 
-        // 模拟异常
-        //String s = null;
-        //s.toString();
+         //模拟异常
+        String s = null;
+        s.toString();
 
         // 事儿没有处理完，这个大括号当中的后续也许还有其他的DML语句。
     }

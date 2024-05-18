@@ -15,6 +15,7 @@ public class BankTxTest {
             accountService.transfer("act-001","act-002",10000.0);
         } catch (Exception e) {
             System.out.println("转账失败");
+            e.printStackTrace();
         }
     }
 }

@@ -37,6 +37,10 @@ public class SpringTxTest {
         i1.getByActno("act-005");
     }
 
+
+
+
+
     @Test
     public void testIsolation2(){
         ApplicationContext applicationContext = new ClassPathXmlApplicationContext("spring.xml");
@@ -45,7 +49,7 @@ public class SpringTxTest {
         try {
             i2.save(act);
         } catch (Exception e) {
-
+            e.printStackTrace();
         }
     }
 
@@ -59,6 +63,16 @@ public class SpringTxTest {
 
         accountService.save(account);
     }
+
+
+
+
+
+
+
+
+
+
 
     @Test
     public void testSpringTx() {
