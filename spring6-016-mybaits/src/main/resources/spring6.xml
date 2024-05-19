@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+                           http://www.springframework.org/schema/beans/spring-beans.xsd
+                           http://www.springframework.org/schema/context
+                           https://www.springframework.org/schema/context/spring-context.xsd
+                           http://www.springframework.org/schema/tx
+                           http://www.springframework.org/schema/tx/spring-tx.xsd">
+
+    <!--    组件扫描，-->
+<!--    <context:component-scan base-package="com.rainbowsea.bank"></context:component-scan>-->
+
+<!--    在Spring 的核心配置文件中引入其他的子 spring 配置文件-->
+    <import resource="common.xml"></import>
+
+    <!--    引入外部的属性配置文件-->
+
+    <context:property-placeholder location="jdbc.properties"></context:property-placeholder>
+
+    <!--    数据源-->
+    <bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource">
+        <property name="driverClassName" value="${jdbc.driver}"></property>
+        <property name="url" value="${jdbc.url}"></property>
+        <property name="username" value="${jdbc.username}"></property>
+        <property name="password" value="${jdbc.password}"></property>
+    </bean>
+
+    <!--    配置SqlSessionFactoryBean  "org.mybatis.spring.SqlSessionFactoryBean"-->
+    <bean class="org.mybatis.spring.SqlSessionFactoryBean">
+        <!--        注入数据源-->
+        <property name="dataSource" ref="dataSource"></property>
+        <!--        指定mybatis 核心配置文件-->
+        <property name="configLocation" value="mybatis-config.xml"></property>
+        <!--        指定别名-->
+        <property name="typeAliasesPackage" value="com.rainbowsea.bank.pojo"></property>
+
+    </bean>
+
+    <!--    Mapper 扫描配置器,主要扫描Mapper 接口，生成代理类-->
+    <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+        <property name="basePackage" value="com.rainbowsea.bank.mapper"></property>
+    </bean>
+
+    <!--    事务管理器-->
+    <bean id="txManger" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <!--        配置数据源-->
+        <property name="dataSource" ref="dataSource"></property>
+    </bean>
+
+    <!--    启用事务注解,事务管理器-->
+    <tx:annotation-driven transaction-manager="txManger"></tx:annotation-driven>
+</beans>
