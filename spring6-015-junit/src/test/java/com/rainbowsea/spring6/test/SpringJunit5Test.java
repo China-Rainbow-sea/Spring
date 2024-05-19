@@ -22,5 +22,16 @@ public class SpringJunit5Test {
     }
 
 
+    @Test  // import org.junit.jupiter.api.Test;
+    public void testUser2() {
+        System.out.println(user.getName());
+    }
+
+    @Test  // import org.junit.jupiter.api.Test;
+    public void testUser3() {
+        System.out.println(user.getName());
+    }
+
+
 
 }

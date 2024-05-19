@@ -52,9 +52,9 @@ public class AccountServiceImpl implements AccountService {
         Account toAct = accountMapper.selectByActno(toActno);
 
         //模拟异常
-      /*  String s = null;
-        s.toString();
-*/
+ /*       String s = null;
+        s.toString();*/
+
         // 内存上修改
         fromAct.setBalance(fromAct.getBalance() - money);
         toAct.setBalance(toAct.getBalance() + money);

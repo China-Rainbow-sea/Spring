@@ -13,4 +13,18 @@ public class SpringJunit4Test {
         User user = applicationContext.getBean("user", User.class);
         System.out.println(user);
     }
+    @Test
+    public void testUser2() {
+        ApplicationContext applicationContext = new ClassPathXmlApplicationContext("spring.xml");
+        User user = applicationContext.getBean("user", User.class);
+        System.out.println(user);
+    }
+
+    @Test
+    public void testUser3() {
+        ApplicationContext applicationContext = new ClassPathXmlApplicationContext("spring.xml");
+        User user = applicationContext.getBean("user", User.class);
+        System.out.println(user);
+    }
+
 }

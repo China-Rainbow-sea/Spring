@@ -13,7 +13,6 @@
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
     </properties>
-
     <!--仓库-->
     <repositories>
         <!--spring里程碑版本的仓库-->

@@ -14,7 +14,6 @@
         <maven.compiler.target>17</maven.compiler.target>
     </properties>
 
-
     <!--仓库-->
     <repositories>
         <!--spring里程碑版本的仓库-->
@@ -26,31 +25,23 @@
     </repositories>
 
     <dependencies>
-<!--        spring context 依赖-->
+        <!--        spring context 依赖-->
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-context</artifactId>
             <version>6.0.11</version>
         </dependency>
 
-<!--        spring 对 Junit 支持的依赖-->
+        <!--        spring 对 Junit 支持的依赖-->
         <!--spring对junit的支持相关依赖-->
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-test</artifactId>
-<!--            这个版本spring6，既支持Junit4 又支持Junit5-->
+            <!--            这个版本spring6，既支持Junit4 又支持Junit5-->
             <version>6.0.11</version>
         </dependency>
 
-<!--        junit4依赖-->
-        <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <version>4.13.2</version>
-            <scope>test</scope>
-        </dependency>
-
-<!--        junit5 依赖-->
+        <!--        junit5 依赖-->
         <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter</artifactId>
@@ -58,12 +49,27 @@
             <scope>test</scope>
         </dependency>
 
-<!--        @Resoure 注解 非简单类型的注入，赋值-->
+
+
+
+        <!--        junit4依赖-->
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.13.2</version>
+            <scope>test</scope>
+        </dependency>
+
+        <!--        @Resoure 注解 非简单类型的注入，赋值-->
         <dependency>
             <groupId>jakarta.annotation</groupId>
             <artifactId>jakarta.annotation-api</artifactId>
             <version>2.1.1</version>
         </dependency>
+
+
+
+
     </dependencies>
 
 </project>
